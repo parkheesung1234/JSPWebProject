@@ -8,7 +8,7 @@ public class BoardDTO {
 	private String tel;
 	private String mobile;
 	private String email;
-	private String zipcode;
+	private String zip1;
 	private String addr1;
 	private String addr2;
 	
@@ -49,11 +49,11 @@ public class BoardDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getZipcode() {
-		return zipcode;
+	public String getZip1() {
+		return zip1;
 	}
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
+	public void setZip1(String zip1) {
+		this.zip1 = zip1;
 	}
 	public String getAddr1() {
 		return addr1;

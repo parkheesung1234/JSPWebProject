@@ -40,7 +40,7 @@ public class BoardDAO extends JDBConnect {
 		psmt.setString(4, dto.getTel());
 		psmt.setString(5, dto.getMobile());
 		psmt.setString(6, dto.getEmail());
-		psmt.setString(7, dto.getZipcode());
+		psmt.setString(7, dto.getZip1());
 		psmt.setString(8, dto.getAddr1());
 		psmt.setString(9, dto.getAddr2());
 		
