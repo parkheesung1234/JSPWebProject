@@ -3,10 +3,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-String id = request.getParameter("id");
+String userId = request.getParameter("userId");
 
 BoardDAO dao = new BoardDAO(application);
-boolean isExist = dao.idOverlap(id);
+boolean isExist = dao.userIdOverlap(userId);
 %>    
 <!DOCTYPE html>
 <html>
@@ -14,8 +14,8 @@ boolean isExist = dao.idOverlap(id);
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script> 
-    function idUse(){
-        opener.document.myform.id.value = document.overlapFrm.retype_id.value;
+    function userIdUse(){
+        opener.document.myform.userId.value = document.overlapFrm.retype_userId.value;
         self.close();
     }
 </script>
@@ -23,16 +23,16 @@ boolean isExist = dao.idOverlap(id);
 <body>
     <h2>아이디 중복확인</h2>
     <div>
-        입력한 아이디 : <%= id %>
+        입력한 아이디 : <%= userId %>
 <%
 if(isExist==true) {
 %>
         <p>
            입력한 아이디는 사용할 수 있습니다. <br />
            <input type="button" value="아이디 사용하기" 
-              onclick = "idUse();"/>
+              onclick = "userIdUse();"/>
              <form action="" name="overlapFrm" >
-                <input type="hidden" name="retype_id" value="<%= id%>"/>
+                <input type="hidden" name="retype_userId" value="<%= userId%>"/>
              </form>
         </p>
 <% 

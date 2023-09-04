@@ -8,13 +8,13 @@ public class BoardDAO extends JDBConnect {
 	public BoardDAO(ServletContext application) {
 		super(application);
 	}
-	public boolean idOverlap(String id) {
+	public boolean userIdOverlap(String userId) {
 		boolean retValue = true;
 		String sql = "SELECT COUNT(*) FROM member WHERE id=?";
 		
 		try {
 			psmt = con.prepareStatement(sql);
-			psmt.setString(1, id);
+			psmt.setString(1, userId);
 			rs = psmt.executeQuery();
 			rs.next();
 			int result = rs.getInt(1);
@@ -35,8 +35,8 @@ public class BoardDAO extends JDBConnect {
 	try {
 		psmt = con.prepareStatement(query);
 		psmt.setString(1, dto.getName());
-		psmt.setString(2, dto.getId());
-		psmt.setString(3, dto.getPass());
+		psmt.setString(2, dto.getuserId());
+		psmt.setString(3, dto.getuserPwd());
 		psmt.setString(4, dto.getTel());
 		psmt.setString(5, dto.getMobile());
 		psmt.setString(6, dto.getEmail());

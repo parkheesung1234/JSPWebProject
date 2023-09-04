@@ -3,8 +3,8 @@ package model1.board;
 public class BoardDTO {
 	
 	private String name;
-	private String id;
-	private String pass;
+	private String userId;
+	private String userPwd;
 	private String tel;
 	private String mobile;
 	private String email;
@@ -19,17 +19,17 @@ public class BoardDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getId() {
-		return id;
+	public String getuserId() {
+		return userId;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setuserId(String userId) {
+		this.userId = userId;
 	}
-	public String getPass() {
-		return pass;
+	public String getuserPwd() {
+		return userPwd;
 	}
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPass(String userPwd) {
+		this.userPwd = userPwd;
 	}
 	public String getTel() {
 		return tel;

@@ -13,7 +13,7 @@ String mobile = request.getParameter("mobile1")
 			+ "-" +request.getParameter("mobile3");
 String email = request.getParameter("email1")+"@"+request.getParameter("email2");
 String mailing = request.getParameter("mailing");
-String zipcode = request.getParameter("zipcode");
+String zip1 = request.getParameter("zip1");
 String addr1 = request.getParameter("addr1");
 String addr2 = request.getParameter("addr2");
 
@@ -25,7 +25,7 @@ dto.setPass(pass);
 dto.setTel(tel);
 dto.setMobile(mobile);
 dto.setEmail(email);
-dto.setZipcode(zipcode);
+dto.setZip1(zip1);
 dto.setAddr1(addr1);
 dto.setAddr2(addr2);
 

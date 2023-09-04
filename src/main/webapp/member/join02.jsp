@@ -7,7 +7,7 @@
 
 </script>
  <body>
- <form name="myform" method="post" onsubmit="return formValidate(this);">
+ <form name="myform" method="post" onsubmit="formValidate();">
 	<center>
 	<div id="wrap">
 		<%@ include file="../include/top.jsp" %>
@@ -37,20 +37,20 @@
 					</tr>
 					<tr>
 						<th><img src="../images/join_tit002.gif" /></th>
-						<td><input type="text" name="id" value="" class="join_input" />&nbsp;
-						<a onclick="IdCheck(this.form);" style="cursor:hand;">
+						<td><input type="text" name="id" id="userId" value="" class="join_input" />&nbsp;
+						<a onclick="IdCheck()" style="cursor:hand;">
 						<img src="../images/btn_idcheck.gif" alt="중복확인"/>
 						</a>&nbsp;&nbsp;<span>* 4자 이상 12자 이내의 영문/숫자 조합하여 공백 없이 기입</span></td>
 					</tr>
 					<tr>
 						<th><img src="../images/join_tit003.gif" /></th>
-						<td><input type="password" name="pass1" value="" class="join_input" />&nbsp;&nbsp;
+						<td><input type="password" name=pass1 id="userPwd1" value="" class="join_input" />&nbsp;&nbsp;
 						
 						<span>* 4자 이상 12자 이내의 영문/숫자 조합</span></td>
 					</tr>
 					<tr>
 						<th><img src="../images/join_tit04.gif" /></th>
-						<td><input type="password" name="pass2" value="" class="join_input" /></td>
+						<td><input type="password" name="pass2" id="userPwd2" value="" class="join_input" /></td>
 					</tr>
 					
 
