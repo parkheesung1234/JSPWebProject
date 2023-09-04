@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../include/global_head.jsp" %>
 <script src="./inc/javascript.js">
+</script>
+<script>
 
 </script>
  <body>
