@@ -35,8 +35,8 @@ public class BoardDAO extends JDBConnect {
 	try {
 		psmt = con.prepareStatement(query);
 		psmt.setString(1, dto.getName());
-		psmt.setString(2, dto.getuserId());
-		psmt.setString(3, dto.getuserPwd());
+		psmt.setString(2, dto.getUserId());
+		psmt.setString(3, dto.getUserPwd());
 		psmt.setString(4, dto.getTel());
 		psmt.setString(5, dto.getMobile());
 		psmt.setString(6, dto.getEmail());

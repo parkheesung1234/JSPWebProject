@@ -5,8 +5,8 @@
 <%
 //폼값 받기
 String name = request.getParameter("name");
-String id = request.getParameter("id");
-String pass = request.getParameter("pass");
+String userId = request.getParameter("userId");
+String userPwd = request.getParameter("userPwd");
 String tel = request.getParameter("tel");
 String mobile = request.getParameter("mobile1")
 			+ "-" +request.getParameter("mobile2")
@@ -20,8 +20,8 @@ String addr2 = request.getParameter("addr2");
 //DTO객체에 저장하기
 BoardDTO dto = new BoardDTO();
 dto.setName(name);
-dto.setId(id);
-dto.setPass(pass);
+dto.setUserId(userId);
+dto.setUserPwd(userPwd);
 dto.setTel(tel);
 dto.setMobile(mobile);
 dto.setEmail(email);

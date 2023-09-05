@@ -60,20 +60,12 @@ function IdCheck(){
             alert("4~12자 사이 영문/숫자를 조합하여 공백없이 기입하여주세요.");
             return false;
         } else {
-            alert("지금 ID는 '" + id + "' 사용하실 수 있습니다. ");
+            alert("지금 ID는 '" + userId + "' 사용하실 수 있습니다. ");
             return true;
         }
 }
-function PwdCheck(){
-	var userPwd = document.getElementById("userPwd").value;
-	var regex =  /^[A-Za-z0-9]{4,12}$/;
-	
-	 if (!regex.test(userPwd)) {
-            alert("4~12자 사이 영문/숫자를 조합하여 공백없이 기입하여주세요.");
-            return false;
-        } else {
-            alert("지금 패스워드는 '" + userPwd + "' 사용하실 수 있습니다. ");
-            return true;
-        }
-	 
-}
+/*
+
+*/
+
+

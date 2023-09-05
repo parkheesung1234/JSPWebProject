@@ -11,24 +11,22 @@ public class BoardDTO {
 	private String zip1;
 	private String addr1;
 	private String addr2;
-	
-	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getuserId() {
+	public String getUserId() {
 		return userId;
 	}
-	public void setuserId(String userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public String getuserPwd() {
+	public String getUserPwd() {
 		return userPwd;
 	}
-	public void setPass(String userPwd) {
+	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
 	}
 	public String getTel() {
@@ -67,7 +65,6 @@ public class BoardDTO {
 	public void setAddr2(String addr2) {
 		this.addr2 = addr2;
 	}
-
 	
 	
-}
+	}
