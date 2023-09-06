@@ -51,7 +51,7 @@ function formValidate(){
 		}
 	});
 };
-*/
+
 function IdCheck(){
 	var userId = document.getElementById("userId").value;
 	var regex =  /^[A-Za-z0-9]{4,12}$/;
@@ -64,8 +64,7 @@ function IdCheck(){
             return true;
         }
 }
-/*
-
 */
+
 
 

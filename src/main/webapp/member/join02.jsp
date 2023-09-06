@@ -1,90 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/global_head.jsp" %>
-<script src="./inc/javascript.js">
+
 </script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 function formValidate(){
-	if (!validateName()) return false;
-    if (!validateUserId()) return false;
-    if (!PwdCheck()) return false; // 기존에 있던 비밀번호 확인 함수
-    if (!validateTel()) return false;
-    if (!validateMobile()) return false;
-    if (!validateEmail()) return false;
-    if (!validateZipAndAddr()) return false;
-
-    // 모든 검증이 통과하면 true를 반환합니다.
-    alert("회원가입 정보가 모두 올바르게 입력되었습니다.");
-	return true;
-}
-
-function validateName() {
-    var name = document.getElementsByName('name')[0].value;
-    if (name == '') {
-        alert("이름을 입력해주세요.");
-        return false;
-    }
-    return true;
-}
-function validateUserId() {
-    var userId = document.getElementById('userId').value;
-    if (userId == '') {
-        alert("아이디를 입력해주세요.");
-        return false;
-    }
-    return true;
-}
-function validateTel() {
-    var tel1 = document.getElementsByName('tel1')[0].value;
-	var tel2 = document.getElementsByName('tel2')[0].value; 
-	var tel3 = document.getElementsByName('tel3')[0].value; 
-
-	if (tel1 == '' || tel2 == '' || tel3 == '') {
-		alert("전화번호를 입력해주세요.");
-		return false; 
-	}
-	return true; 
-}
-
-function validateMobile() {
+	var name = document.getElementsByName('name').value;
+	var userId = document.getElementById('userId').value
+	var userPwd1 = document.getElementById("userPwd1").value;
+	var userPwd2 = document.getElementById("userPwd2").value;
+	var tel1 = document.getElementsByName('tel1').value;
+	var tel2 = document.getElementsByName('tel2').value; 
+	var tel3 = document.getElementsByName('tel3').value; 
 	var mobile1 = document.getElementsByName('mobile1')[0].value; 
 	var mobile2 = document.getElementsByName('mobile2')[0].value; 
 	var mobile3 = document.getElementsByName('mobile3')[0].value;
-
-	if (mobile1 == '' || mobile2 == '' || mobile3 == '') {	
-		alert("휴대폰 번호를 입력해주세요.");
-		return false;  
+	var email_1= document.getElementsByName('email_1').value;
+	var email_2= document.getElementsByName('email_2').value;
+	
+	if(name == ""){
+		alert("이름을 입력해주세요.");
+		return false;
+	}else if(userId == ""){
+		 alert("아이디를 입력해주세요.");
+		 return false;
+		 
+	}else if(userPwd1 == ""){
+		 alert("비밀번호를 입력해주세요.");
+		 return false;
+	}else if(userPwd2 == ""){
+		 alert("비밀번호를 확인해주세요.");
+		 return false;
+	}else if(tel1 == ""||tel2 == ""||tel3 == ""){
+		 alert("전화번호를 확인해주세요.");
+		 return false;
+	}else if(mobile1 == ""||mobile2 == ""||mobile3 == ""){
+		 alert("핸드폰번호를 확인해주세요.");
+		 return false;
+	}else if(email_1 == ""||email_2 == ""){
+		alert("이메일을 확인해주세요.");
+		return false;
 	}
-	return true;  
-}
-
-function validateEmail() {	
-	var email_1= 	document.querySelector('[name="email_1"]').value ;
-	var email_2= 	document.querySelector('[name="email_2"]').options[document.querySelector('[name="email_2"]').selectedIndex].text;
-
-	if (email_1==''|| email_2=='') {	
-		alert("이메일을 입력해주세요.");		
-		return false;  
-	} else if (!email.includes('@')) { // 이메일 형식 확인
-        	alert("올바른 이메일 형식을 사용해 주세요.");
-        	return false;
-    	}
+}	
+function validateEmail() {
+	
+	if(email_1 == ""||email_2 == ""){
+		alert("이메일을 확인해주세요.");
+		return false;
+	}else if (!(email_1 + "@" + email_2).includes('@')) {
+        alert("올바른 이메일 형식을 사용해 주세요.");
+        return false; 
+    }
     	return true;
 
 }
-
+/*
 function validateZipAndAddr() {	
-   var zip= 	document.querySelector('[name="zip"]').valuet ;
-   var addr1= 	document.querySelector('[name="addr1"]').valuet ;
-   var addr2= 	document.querySelector('[name="addr2"]').valuet ;
+   var zip1= document.querySelector('[name="zip1"]').value;
+   var addr1= document.querySelector('[name="addr1"]').value;
+   var addr2= document.querySelector('[name="addr2"]').value;
 
-	if (zip==''|| addr=='') {	
+	if (zip1==''|| addr1==''||addr2='') {	
 			alert("우편번호와 주소를 모두 입력하세요");		
 			return false ;  
 	   } 	
 	   return true ;    
 }
+*/
 function IdCheck(){
 	var userId = document.getElementById("userId").value;
 	var regex =  /^[A-Za-z0-9]{4,12}$/;
@@ -97,10 +80,11 @@ function IdCheck(){
             return true;
         }
 }
+
 function PwdCheck(){
 	var userPwd1 = document.getElementById("userPwd1").value;
 	var userPwd2 = document.getElementById("userPwd2").value;
-	var regex =  /^[A-Za-z0-9]{4,12}$/;
+	var regex = /^[A-Za-z0-9]{4,12}$/;
 	
 	 if (!regex.test(userPwd1)||!regex.test(userPwd2)) {
          alert("4~12자 사이 영문/숫자를 조합하여 공백없이 기입하여주세요.");
@@ -134,7 +118,7 @@ function zipFind(){
 }
 </script>
  <body>
- <form name="myform" action="loginAction.jsp" method="post" onsubmit="return formValidate();">
+ <form name="myform" method="post" onsubmit="return formValidate(this);">
 	<center>
 	<div id="wrap">
 		<%@ include file="../include/top.jsp" %>
@@ -243,9 +227,11 @@ function zipFind(){
 					</tr>
 				</table>
 
-				<p style="text-align:center; margin-bottom:20px"><input id="submit" type="image" src="../images/btn01.gif" />&nbsp;&nbsp;<a href="#"><input id="reset" type="image" src="../images/btn02.gif" />
-				</a></p>
-				
+				<p style="text-align:center; margin-bottom:20px">
+				<input  id="submit" type="image" src="../images/btn01.gif" >&nbsp;&nbsp;
+				<input id="reset" type="image" src="../images/btn02.gif" />
+				</p>
+		
 			</div>
 		</div>
 		</form>
