@@ -1,5 +1,7 @@
 package model1.board;
 
+import java.sql.ResultSet;
+
 import common.JDBConnect;
 import jakarta.servlet.ServletContext;
 
@@ -10,7 +12,7 @@ public class BoardDAO extends JDBConnect {
 	}
 	public boolean userIdOverlap(String userId) {
 		boolean retValue = true;
-		String sql = "SELECT COUNT(*) FROM member WHERE id=?";
+		String sql = "SELECT COUNT(*) FROM member WHERE userId=?";
 		
 		try {
 			psmt = con.prepareStatement(sql);
@@ -27,11 +29,10 @@ public class BoardDAO extends JDBConnect {
 		return retValue;
 	}
 	
-	public int memberInsert(BoardDTO dto) {
+	public int addmember(BoardDTO dto) {
 		int result = 0;
-		String query ="INSERT INTO member VALUES ("
-				+ " ?, ?, ?, ?, ?, ?, ?, ?, ? "
-				+ " )";
+		String query = "INSERT INTO member VALUES ( "
+				+ " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	try {
 		psmt = con.prepareStatement(query);
 		psmt.setString(1, dto.getName());
@@ -40,9 +41,10 @@ public class BoardDAO extends JDBConnect {
 		psmt.setString(4, dto.getTel());
 		psmt.setString(5, dto.getMobile());
 		psmt.setString(6, dto.getEmail());
-		psmt.setString(7, dto.getZip1());
-		psmt.setString(8, dto.getAddr1());
-		psmt.setString(9, dto.getAddr2());
+		psmt.setString(7, dto.getMailing());
+		psmt.setString(8, dto.getZip1());
+		psmt.setString(9, dto.getAddr1());
+		psmt.setString(10, dto.getAddr2());
 		
 		result = psmt.executeUpdate();
 	}
@@ -53,4 +55,24 @@ public class BoardDAO extends JDBConnect {
 	return result;
 
 }
+	public boolean checkIdPwd(BoardDTO dto) {
+		boolean isValiUser = false;
+		
+		try {
+			String query = "SELECT * FROM member WHERE userId = ? AND userPwd = ?";
+			psmt = con.prepareStatement(query);
+			psmt.setString(2, dto.getUserId());
+			psmt.setString(3, dto.getUserPwd());
+			ResultSet rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				isValiUser = true;
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return isValiUser;
+			
+	}
 }

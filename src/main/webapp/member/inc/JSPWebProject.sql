@@ -13,11 +13,12 @@ grant connect, resource, unlimited tablespace TO sua_project;
 --회원관리 테이블 생성
 create table member (
     name varchar2(30) not null,
-    id varchar2(30) not null,
-    pass varchar2(40) not null,
+    userId varchar2(30) not null,
+    userPwd varchar2(40) not null,
     tel varchar2(50) not null,
     mobile varchar2(50) not null,
     email varchar2(100) not null,
+    mailing number(1)
     zipcode varchar2(5),
 	addr1 varchar2(100),
 	addr2 varchar2(200),

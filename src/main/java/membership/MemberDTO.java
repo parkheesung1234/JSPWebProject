@@ -1,6 +1,6 @@
-package model1.board;
+package membership;
 
-public class BoardDTO {
+public class MemberDTO {
 	
 	private String name;
 	private String userId;
@@ -75,4 +75,5 @@ public class BoardDTO {
 	}
 	
 	
-	}
+	
+}
