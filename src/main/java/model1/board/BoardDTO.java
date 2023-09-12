@@ -2,76 +2,55 @@ package model1.board;
 
 public class BoardDTO {
 	
-	private String name;
-	private String userId;
-	private String userPwd;
-	private String tel;
-	private String mobile;
-	private String email;
-	private String mailing;
-	private String zip1;
-	private String addr1;
-	private String addr2;
+	private String num;
+	private String title;
+	private String content;
+	private String id;
+	private java.sql.Date postdate;
+	private String visitcount;
+	private String tname;
 	
-	public String getMailing() {
-		return mailing;
+	public String getNum() {
+		return num;
 	}
-	public void setMailing(String mailing) {
-		this.mailing = mailing;
+	public void setNum(String num) {
+		this.num = num;
 	}
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getUserId() {
-		return userId;
+	public String getContent() {
+		return content;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setContent(String content) {
+		this.content = content;
 	}
-	public String getUserPwd() {
-		return userPwd;
+	public String getId() {
+		return id;
 	}
-	public void setUserPwd(String userPwd) {
-		this.userPwd = userPwd;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getTel() {
-		return tel;
+	public java.sql.Date getPostdate() {
+		return postdate;
 	}
-	public void setTel(String tel) {
-		this.tel = tel;
+	public void setPostdate(java.sql.Date postdate) {
+		this.postdate = postdate;
 	}
-	public String getMobile() {
-		return mobile;
+	public String getVisitcount() {
+		return visitcount;
 	}
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public void setVisitcount(String visitcount) {
+		this.visitcount = visitcount;
 	}
-	public String getEmail() {
-		return email;
+	public String getTname() {
+		return tname;
 	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getZip1() {
-		return zip1;
-	}
-	public void setZip1(String zip1) {
-		this.zip1 = zip1;
-	}
-	public String getAddr1() {
-		return addr1;
-	}
-	public void setAddr1(String addr1) {
-		this.addr1 = addr1;
-	}
-	public String getAddr2() {
-		return addr2;
-	}
-	public void setAddr2(String addr2) {
-		this.addr2 = addr2;
+	public void setTname(String tname) {
+		this.tname = tname;
 	}
 	
 	

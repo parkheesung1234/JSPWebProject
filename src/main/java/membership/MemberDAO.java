@@ -1,7 +1,10 @@
 package membership;
 
+import java.sql.ResultSet;
+
 import common.JDBConnect;
 import jakarta.servlet.ServletContext;
+import model1.board.BoardDTO;
 
 /*
 DAO(Data Access object) 실제 데이터베이스에 접근하여 기본적인 CRUD 작업을 하기 위한 객체이다.
@@ -100,4 +103,43 @@ public class MemberDAO extends JDBConnect {
 		}
 		return retValue;
 	}
+	public boolean checkIdPwd(MemberDTO dto) {
+		boolean isValiUser = false;
+		
+		try {
+			String query = "SELECT * FROM member WHERE userId=? AND userPwd=?";
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, dto.getUserId());
+			psmt.setString(2, dto.getUserPwd());
+			ResultSet rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				isValiUser = true;
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return isValiUser;
+			
+	}
+	public boolean userIdOverlap(String userId) {
+		boolean retValue = true;
+		String sql = "SELECT COUNT(*) FROM member WHERE userId=?";
+		
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, userId);
+			rs = psmt.executeQuery();
+			rs.next();
+			int result = rs.getInt(1);
+			if(result==1)
+				retValue = false;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return retValue;
+	}
+
 }

@@ -33,13 +33,13 @@ function login(form){
 				<form action="loginprocess.jsp" method="post">
 					<img src="../images/login_tit.gif" style="margin-bottom:30px;" />
 					<ul>
-						<li><img src="../images/login_tit001.gif" alt="아이디" style="margin-right:15px;" /><input type="text" name="userId" value="" class="login_input01" /></li>
-						<li><img src="../images/login_tit002.gif" alt="비밀번호" style="margin-right:15px;" /><input type="password" name="userPwd" value="" class="login_input01" /></li>
+						<li><img src="../images/login_tit001.gif" alt="아이디" style="margin-right:15px;" /><input type="text" id="userId" name="userId" value="" class="login_input01" /></li>
+						<li><img src="../images/login_tit002.gif" alt="비밀번호" style="margin-right:15px;" /><input type="password" id="userPwd" name="userPwd" value="" class="login_input01" /></li>
 					</ul>
 					<input type="image" src="../images/login_btn.gif" onclick="return login(this.from)" class="login_btn01" />
 				</form>
 				</div>
-				<p style="text-align:center; margin-bottom:50px;"><a href=""><img src="../images/login_btn02.gif" alt="아이디/패스워드찾기" /></a>&nbsp;<a href=""><img src="../images/login_btn03.gif" alt="회원가입" /></a></p>
+				<p style="text-align:center; margin-bottom:50px;"><a href=""><img src="../images/login_btn02.gif" alt="아이디/패스워드찾기" /></a>&nbsp;<a href=""><img src="../images/login_btn03.gif" onclick="./join02/jsp" alt="회원가입" /></a></p>
 			</div>
 		</div>
 		<%@ include file="../include/quick.jsp" %>

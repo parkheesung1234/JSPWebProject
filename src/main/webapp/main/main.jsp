@@ -5,6 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>마포구립장애인 직업재활센터</title>
+<script>
+function login(form){
+	var userId = document.loginForm.userId.value;
+	var userPwd = document.loginForm.userPwd.value;
+	
+	if(userId ==""||userPwd==""){
+		alert("아이디와 비밀번호를 모두 입력해주세요.");
+		return false;
+	}
+}
+</script>
 <style type="text/css" media="screen">
 @import url("../css/common.css");
 @import url("../css/main.css");
@@ -29,7 +40,7 @@
 session영역에 해당 속성값이 있는지 확인한다. 즉, session영역에 데이터가 없다면
 로그아웃 상태이므로 로그인 폼을 웹브라우저에 출력한다.
 */
-if (session.getAttribute("UserId") == null) { 
+if (session.getAttribute("userId") == null) { 
 %>
 					<table cellpadding="0" cellspacing="0" border="0">
 						<colgroup>
@@ -37,15 +48,17 @@ if (session.getAttribute("UserId") == null) {
 							<col width="120px" />
 							<col width="55px" />
 						</colgroup>
+						<form name="loginForm" action="../member/loginprocess.jsp" >
 						<tr>
 							<th><img src="../images/login_tit01.gif" alt="아이디" /></th>
-							<td><input type="text" name="" value="" class="login_input" /></td>
-							<td rowspan="2"><input type="image" src="../images/login_btn01.gif" alt="로그인" /></td>
+							<td><input type="text" name="userId" id="userId" value="" class="login_input" /></td>
+							<td rowspan="2"><input type="image" src="../images/login_btn01.gif" onclick="return login('loginForm')" alt="로그인" /></td>
 						</tr>
 						<tr>
 							<th><img src="../images/login_tit02.gif" alt="패스워드" /></th>
-							<td><input type="text" name="" value="" class="login_input" /></td>
+							<td><input type="text" name="userPwd" id="userPwd" value="" class="login_input" /></td>
 						</tr>
+						</form>
 					</table>
 					<p>
 						<input type="checkbox" name="" value="" /><img src="../images/login_tit03.gif" alt="저장" />
@@ -57,8 +70,9 @@ if (session.getAttribute("UserId") == null) {
 %>					 		 
 					<!-- 로그인 후 -->
 					<p style="padding:10px 0px 10px 10px"><span style="font-weight:bold; color:#333;">
+						<%= session.getAttribute("name") %> 회원님, 반갑습니다.<br />
 						<a href=""><img src="../images/login_btn04.gif" /></a>
-						<a href=""><img src="../images/login_btn05.gif" /></a>
+						<a href="../member/Logout.jsp"><img src="../images/login_btn05.gif" /></a>
 					</p>
 			 <%
 				    }
